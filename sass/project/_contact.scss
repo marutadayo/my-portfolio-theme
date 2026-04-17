@@ -1,0 +1,103 @@
+@use "sass:map";
+
+// project/_contact.scss
+@use "../foundation/variables" as v;
+@use "../foundation/mixins" as m;
+
+.contact {
+  padding: v.$space-7 0;
+
+  @include m.mq(lg) {
+    padding: v.$space-9 0;
+  }
+
+  &__form {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: v.$space-7;
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-5;
+  }
+
+  &__form-item {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-3;
+  }
+
+  &__item-label {
+    width: fit-content;
+    font-size: v.$font-xs;
+    display: block;
+    position: relative;
+    padding-right: v.$space-7;
+    color: v.$txt-color;
+    font-weight: v.$font-weight-bd;
+
+    @include m.mq(lg) {
+      font-size: v.$font-md;
+    }
+  }
+
+  &__textarea-comment {
+    width: 100%;
+    height: 100px;
+  }
+
+  &__form-submit {
+    width: fit-content;
+    margin: v.$space-4 auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__submit-btn {
+    display: block;
+    width: 100%;
+    border-radius: 6px;
+    background-color: v.$color-secondary;
+    transition: .3s ease;
+    overflow: hidden;
+
+    &-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: v.$space-3 v.$space-4;
+      font-size: v.$font-sm;
+      font-weight: v.$font-weight-base;
+      color: v.$base-color;
+      background-color: v.$color-secondary;
+      border-radius: 6px;
+      transition: .3s ease;
+    }
+
+    @include m.mq(lg) {
+      @include m.hover {
+        background-color: v.$color-primary;
+
+        .contact__submit-btn-inner {
+          background-color: v.$color-primary;
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+
+  &__txt-bottom {
+    width: 100%;
+
+    @include m.mq(md) {
+      width: fit-content;
+      margin: v.$space-4 auto 0;
+    }
+  }
+
+  // CF7が自動生成するラッパー要素の幅を100%にする
+  .wpcf7-form-control-wrap {
+    display: block;
+    width: 100%;
+  }
+}

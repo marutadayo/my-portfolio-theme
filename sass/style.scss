@@ -1,0 +1,32 @@
+@use "sass:map";
+
+
+//style.scss
+// 1. foundation
+@use "foundation/variables" as v;
+@use "foundation/mixins" as m;
+@use "foundation/base";
+
+// 2. Layout
+@use "layout/header";
+@use "layout/main";
+@use "layout/footer";
+
+// 3. Component
+@use "component/common";
+@use "component/page-top";
+
+// 4. Project
+@use "project/main-visual";
+@use "project/works";
+@use "project/about";
+@use "project/contact";
+@use "project/modal";
+
+
+// 横スクロールバグチェック css
+// 完成後削除
+
+// * {
+// 	outline: 1px solid magenta;
+// }

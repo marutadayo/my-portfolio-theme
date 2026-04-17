@@ -1,0 +1,189 @@
+@use "sass:map";
+
+// project/_about.scss
+@use "../foundation/variables" as v;
+@use "../foundation/mixins" as m;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-6;
+  padding-top: v.$space-7;
+
+  @include m.mq(lg) {
+    padding-top: v.$space-9;
+    gap: v.$space-7;
+  }
+
+  &__Self-intro {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-4;
+
+    @include m.mq(md) {
+      flex-direction: initial;
+      justify-content: space-between;
+      gap: v.$space-6;
+      flex: 1;
+    }
+  }
+
+  &__intro-inner {
+    @include m.mq(md) {
+      width: 340px;
+    }
+
+    @include m.mq(lg) {
+      width: 458px;
+    }
+
+    @include m.mq(xl) {
+      width: 100%;
+    }
+  }
+
+  &__inner-img {
+    width: 100%;
+  }
+
+  &__intro-detail {
+    width: 100%;
+
+    @include m.mq(md) {
+      width: 340px;
+    }
+
+    @include m.mq(lg) {
+      width: 458px;
+    }
+
+    @include m.mq(xl) {
+      width: 100%;
+    }
+  }
+
+  &__intro-ttl {
+    font-size: v.$font-md;
+    font-weight: v.$font-weight-base;
+    color: v.$txt-color;
+    text-align: center;
+    padding-bottom: v.$space-2;
+    line-height: 1.25;
+
+    @include m.mq(md) {
+      text-align: start;
+    }
+  }
+
+  &__coding-skill,
+  &__design-skill {
+    padding-top: v.$space-2;
+
+    @include m.mq(md) {
+      padding-top: 0;
+    }
+  }
+
+  &__skill-ttl {
+    width: fit-content;
+    margin: 0 auto v.$space-6;
+    font-size: v.$font-md;
+    font-weight: v.$font-weight-bd;
+    letter-spacing: 0.03em;
+    font-family: serif;
+    line-height: 1.25;
+    color: v.$txt-color;
+    position: relative;
+    padding-bottom: v.$space-2;
+
+    @include m.mq(lg) {
+      font-size: v.$font-lg;
+      margin: 0 auto v.$space-7;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 4px;
+      background-color: v.$color-primary;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__skill-list-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-4;
+
+    @include m.mq(md) {
+      flex-direction: initial;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__skill-list {
+    width: 100%;
+
+    @include m.mq(md) {
+      width: 340px;
+    }
+
+    @include m.mq(lg) {
+      width: 458px;
+    }
+
+    @include m.mq(xl) {
+      width: 625px;
+    }
+  }
+
+  &__item-name {
+    width: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: v.$space-2 0;
+    color: v.$base-color;
+    margin: 0 auto;
+    font-size: v.$font-sm;
+    background-color: v.$color-primary;
+    border-radius: 9999px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 14px;
+      background-color: v.$color-primary;
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+      top: 95%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--design {
+      background-color: #7E98C0;
+
+      &::before {
+        background-color: #7E98C0;
+      }
+    }
+  }
+
+  &__item-detail {
+    height: 170px;
+    padding: v.$space-5 v.$space-4;
+    border-radius: 8px;
+    background-color: v.$base-color;
+    box-shadow: 0 0 6px rgba(34, 34, 34, .2);
+
+    @include m.mq(lg) {
+      height: 130px;
+    }
+  }
+}

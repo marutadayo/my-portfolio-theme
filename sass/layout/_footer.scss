@@ -1,0 +1,72 @@
+@use "sass:map";
+
+// layout/_footer.scss
+@use "../foundation/variables" as v;
+@use "../foundation/mixins" as m;
+
+
+// footer
+
+.site-footer {
+  width: 100%;
+  background-color: v.$color-secondary;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-4;
+    padding: v.$space-5;
+
+    @include m.mq(md) {
+      flex-direction: initial;
+      justify-content: center;
+      gap: 0;
+    }
+  }
+
+  &__list-item {
+
+    @include m.mq(md) {
+      padding: 0 v.$space-4;
+      border-right: 2px solid v.$base-color;
+    }
+  }
+
+  &__list-item:last-child {
+
+    @include m.mq(md) {
+      border-right: none;
+    }
+  }
+
+  &__item-link {
+    width: fit-content;
+    margin: 0 auto;
+    display: block;
+    font-size: v.$font-md;
+    color: v.$base-color;
+    font-weight: v.$font-weight-base;
+    line-height: 1.25;
+    letter-spacing: 0.07em;
+    transition: .3s ease;
+
+    @include m.mq(lg) {
+      @include m.hover {
+        transform: scale(0.95);
+        transition: .3s ease;
+      }
+    }
+
+  }
+
+  &__copyright {
+    display: block;
+    font-size: 1.4rem;
+    text-align: center;
+    color: v.$base-color;
+    font-weight: v.$font-weight-base;
+    letter-spacing: 0.05em;
+    line-height: 2;
+    border-top: 1px solid v.$base-color;
+  }
+}

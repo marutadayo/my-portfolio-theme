@@ -1,0 +1,333 @@
+@use "sass:map";
+
+// project/_works.scss
+@use "../foundation/variables" as v;
+@use "../foundation/mixins" as m;
+
+.works {
+
+  &__production-web {
+    padding-bottom: v.$space-6;
+
+    @include m.mq(lg) {
+      padding-bottom: v.$space-8;
+    }
+  }
+
+  &__web-ttl {
+    font-size: v.$font-md;
+    font-weight: v.$font-weight-bd;
+    font-family: serif;
+    line-height: 1.25;
+    color: v.$txt-color;
+    margin: v.$space-6 0;
+    text-align: center;
+    letter-spacing: 0.06em;
+    position: relative;
+    padding-bottom: v.$space-2;
+
+    @include m.mq(lg) {
+      font-size: v.$font-lg;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 4px;
+      background-color: v.$color-primary;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__web-list {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-6;
+
+    @include m.mq(md) {
+      flex-direction: initial;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: v.$space-5;
+    }
+
+    @include m.mq(lg) {
+      gap: v.$space-7 v.$space-6;
+    }
+  }
+
+  &__web-item-box {
+    width: 100%;
+    position: relative;
+
+    @include m.mq(md) {
+      width: 340px;
+    }
+
+    @include m.mq(lg) {
+      width: 458px;
+
+      @include m.hover {
+        .works__web-inner-img {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    @include m.mq(xl) {
+      width: 100%;
+    }
+  }
+
+  &__web-item-inner {
+    border: 1px solid v.$color-primary;
+    overflow: hidden;
+  }
+
+  &__web-inner-img {
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  &__web-item-ttl {
+    font-size: v.$font-md;
+    line-height: 1.25;
+    font-weight: v.$font-weight-bd;
+    color: v.$txt-color;
+    padding: v.$space-4 0;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 0.05em;
+  }
+
+  &__ttl-label {
+    display: block;
+    padding-right: v.$space-2;
+  }
+
+  &__ttl-name {
+    display: block;
+  }
+
+  &__web-item-txt {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-2;
+    padding: 0 v.$space-5;
+
+    @include m.mq(xl) {
+      padding: 0;
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+
+  &__web-txt-row {
+    font-size: v.$font-xs;
+    color: v.$txt-color;
+    text-align: center;
+    line-height: 1.5;
+
+    @include m.mq(lg) {
+      display: flex;
+      justify-content: flex-start;
+      gap: v.$space-2;
+    }
+  }
+
+  &__txt-label {
+    font-weight: v.$font-weight-bd;
+    letter-spacing: 0.07em;
+  }
+
+  &__txt-summary {
+    letter-spacing: 0.05em;
+    font-weight: v.$font-weight-base;
+  }
+
+  &__web-txt-row:last-child .works__txt-summary {
+    letter-spacing: 0.01em;
+    font-weight: v.$font-weight-base;
+  }
+
+  &__modal-trigger-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: map.get(v.$z-index, front);
+    cursor: pointer;
+  }
+
+  &__production-banner {
+    padding-bottom: v.$space-6;
+
+    @include m.mq(lg) {
+      padding-bottom: v.$space-8;
+    }
+  }
+
+  &__banner-ttl {
+    font-size: v.$font-md;
+    font-weight: v.$font-weight-bd;
+    font-family: serif;
+    line-height: 1.25;
+    color: v.$txt-color;
+    margin-bottom: v.$space-6;
+    text-align: center;
+    letter-spacing: 0.06em;
+    position: relative;
+    padding-bottom: v.$space-2;
+
+    @include m.mq(lg) {
+      font-size: v.$font-lg;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 4px;
+      background-color: v.$color-primary;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__banner-list {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-5;
+
+    @include m.mq(md) {
+      display: block;
+      column-count: 2;
+      column-gap: v.$space-5;
+    }
+
+  }
+
+  &__banner-list-item {
+    @include m.mq(md) {
+      break-inside: avoid;
+      margin-bottom: v.$space-5;
+    }
+  }
+
+  &__banner-item-container {
+    width: 100%;
+    position: relative;
+
+    @include m.mq(lg) {
+
+      @include m.hover {
+        .works__banner-inner-img {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+
+  &__banner-item-inner {
+    overflow: hidden;
+  }
+
+  &__banner-inner-img {
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  &__banner-trigger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: map.get(v.$z-index, front);
+    cursor: pointer;
+  }
+
+  &__logo-ttl {
+    font-size: v.$font-md;
+    font-weight: v.$font-weight-bd;
+    font-family: serif;
+    line-height: 1.25;
+    color: v.$txt-color;
+    margin-bottom: v.$space-6;
+    text-align: center;
+    letter-spacing: 0.06em;
+    position: relative;
+    padding-bottom: v.$space-2;
+
+    @include m.mq(lg) {
+      font-size: v.$font-lg;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 4px;
+      background-color: v.$color-primary;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+&__logo-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-5;
+
+    @include m.mq(md) {
+      flex-direction: initial;
+      justify-content: space-between;
+      gap: v.$space-6;
+    }
+  }
+
+  &__logo-item-container {
+    width: 100%;
+    position: relative;
+
+    @include m.mq(lg) {
+      @include m.hover {
+        .works__logo-inner-img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  &__logo-item-inner {
+    overflow: hidden;
+    border: 1px solid v.$txt-color;
+  }
+
+  &__logo-inner-img {
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  &__logo-item-trigger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: map.get(v.$z-index, front);
+    cursor: pointer;
+  }
+}

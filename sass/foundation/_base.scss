@@ -1,0 +1,27 @@
+@use "sass:map";
+
+// foundation/_base.scss
+@use "../foundation/variables" as v;
+@use "../foundation/mixins" as m;
+
+:root {
+  --line-width: 354px;
+}
+
+@include m.mq(md) {
+  :root {
+    --line-width: 500px;
+  }
+}
+
+@include m.mq(lg) {
+  :root {
+    --line-width: 720px;
+  }
+}
+
+@include m.mq(xl) {
+  :root {
+    --line-width: 1000px;
+  }
+}

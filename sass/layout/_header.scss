@@ -1,0 +1,340 @@
+@use "sass:map";
+
+// layout/_header.scss
+@use "../foundation/variables" as v;
+@use "../foundation/mixins" as m;
+
+
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: map.get(v.$z-index, front);
+  width: 100%;
+  padding: v.$space-5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include m.mq(md) {
+    padding:
+      clamp(32px, calc(32px + (16 * (100vw - 768px) / 1152)), 48px) clamp(32px, calc(32px + (16 * (100vw - 768px) / 1152)), 48px) 24px clamp(32px, calc(32px + (16 * (100vw - 768px) / 1152)), 48px);
+  }
+
+  @include m.mq(xl) {
+    padding: v.$space-7 v.$space-7 v.$space-5 v.$space-7;
+  }
+
+  &__site-name {
+    transform: translateY(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: 2s ease;
+  }
+
+  &__site-name.header-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__name-link {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: v.$font-md;
+    font-family: serif;
+    font-weight: v.$font-weight-bd;
+    color: v.$color-primary;
+    letter-spacing: 0.05em;
+
+    @include m.mq(sm) {
+      font-size: clamp(2.4rem, calc(24px + (8 * (100vw - 375px) / 393)), 3.2rem);
+    }
+
+    @include m.mq(md) {
+      font-size: clamp(3.2rem, calc(32px + (8 * (100vw - 768px) / 512)), 4rem);
+    }
+
+    @include m.mq(lg) {
+      font-size: clamp(4rem, calc(40px + (24 * (100vw - 1280px) / 640)), 6.4rem);
+    }
+
+    @include m.mq(xl) {
+      font-size: v.$font-xxl;
+    }
+  }
+
+  &__site-logo {
+    width: 40px;
+    padding-right: v.$space-2;
+    display: block;
+
+    @include m.mq(sm) {
+      width: clamp(40px, calc(40px + (20 * (100vw - 375px) / 393)), 60px);
+      padding-right: clamp(8px, calc(8px + (8 * (100vw - 375px) / 393)), 12px);
+    }
+
+    @include m.mq(md) {
+      width: clamp(60px, calc(60px + (20 * (100vw - 768px) / 1152)), 80px);
+      padding-right: clamp(12px, calc(12px + (12 * (100vw - 768px) / 1152)), 24px);
+    }
+
+    @include m.mq(xl) {
+      width: 80px;
+      padding-right: v.$space-5;
+    }
+  }
+
+  &__hero-area.cover {
+    @include m.mq(md) {
+      padding-right: v.$space-3;
+      position: fixed;
+      background: rgba(0, 0, 0, .5);
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    @include m.mq(lg) {
+      display: none;
+    }
+  }
+
+  &__nav-btn {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    border: none;
+    appearance: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: map.get(v.$z-index, global-nav);
+    border-radius: 50%;
+    background-color: v.$color-primary;
+    transform: translateY(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: 2s ease;
+
+    @include m.mq(lg) {
+      display: none;
+    }
+  }
+
+  &__nav-btn.header-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__nav-btn.close-btn {
+    background-color: v.$base-color;
+    transition: .3s ease;
+  }
+
+  &__btn-txt {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    font-size: 1.4rem;
+    color: v.$color-primary;
+    transition: .3s ease;
+  }
+
+  &__btn-txt.bar-active:nth-child(4) {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    font-size: 1.4rem;
+    color: v.$color-primary;
+    transition: .3s ease;
+  }
+
+  &__btn-bar {
+    position: absolute;
+    width: 32px;
+    height: 3px;
+    background-color: v.$base-color;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .3s ease;
+  }
+
+  &__btn-bar:nth-child(1) {
+    top: 19px;
+  }
+
+  &__btn-bar:nth-child(3) {
+    top: auto;
+    bottom: 16px;
+  }
+
+  &__btn-bar.bar-active {
+    background-color: v.$color-primary;
+  }
+
+  &__btn-bar.bar-active:nth-child(2) {
+    display: none;
+  }
+
+  &__btn-bar.bar-active:nth-child(1) {
+    transform: translateY(-50%) translateX(-50%) rotate(35deg);
+    top: 24px;
+
+  }
+
+  &__btn-bar.bar-active:nth-child(3) {
+    transform: translateX(-50%) translateY(-50%) rotate(-35deg);
+    top: 24px;
+  }
+
+  &__btn-bar.bar-active {
+    top: 50%;
+  }
+
+  &__global-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: map.get(v.$z-index, front);
+    transition: .3s ease;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    background-color: v.$color-secondary;
+    padding: 0 36px;
+
+    @include m.mq(md) {
+      width: 60%;
+    }
+
+    @include m.mq(lg) {
+      position: static;
+      width: fit-content;
+      overflow-y: initial;
+      background-color: v.$color-primary;
+      padding:
+        clamp(8px, calc(8px + (8 * (100vw - 1280px) / 640)), 16px) clamp(32px, calc(32px + (32 * (100vw - 1280px) / 640)), 64px);
+      border-radius: 9999px;
+      transform: translateY(-100%);
+      visibility: hidden;
+      opacity: 0;
+      transition: 2s ease;
+    }
+
+    @include m.mq(xl) {
+      padding: v.$space-4 v.$space-8;
+      border-radius: 9999px;
+    }
+  }
+
+  &__global-nav.nav-open {
+    right: 0;
+  }
+
+  &__global-nav.header-active {
+    @include m.mq(lg) {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__nav-list {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include m.mq(lg) {
+      margin: 0;
+      flex-direction: row;
+      justify-content: center;
+      gap: 0;
+    }
+  }
+
+  &__list-item {
+    @include m.mq(lg) {
+      border-left: 1px solid v.$base-color;
+    }
+  }
+
+  &__list-item:first-child {
+    @include m.mq(lg) {
+      border-left: none;
+    }
+  }
+
+  &__item-link {
+    font-family: serif;
+    color: v.$base-color;
+    display: block flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: v.$font-lg;
+    letter-spacing: 0.07em;
+    transition: .3s ease;
+    line-height: 1.25;
+
+    @include m.mq(lg) {
+      font-family: 'Noto sans JP';
+      font-size: clamp(2.8rem, calc(28px + (4 * (100vw - 1280px) / 640)), 3.2rem);
+      padding-inline: clamp(30px, calc(30px + (25 * (100vw - 1280px) / 640)), 55px);
+    }
+
+    @include m.mq(xl) {
+      font-family: 'Noto sans JP';
+      font-size: v.$font-lg;
+      padding: 0 55px;
+    }
+
+    @include m.hover {
+      transform: scale(0.95, 0.95);
+    }
+  }
+
+  &__link-number {
+    font-size: v.$font-md;
+    font-weight: 400;
+    display: block;
+    padding-right: 28px;
+    position: relative;
+
+    @include m.mq(lg) {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 2px;
+      background-color: v.$base-color;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__link-ja-txt {
+    font-size: v.$font-xs;
+    font-weight: 400;
+    display: block;
+    padding-left: v.$space-4;
+
+    @include m.mq(lg) {
+      display: none;
+    }
+  }
+}

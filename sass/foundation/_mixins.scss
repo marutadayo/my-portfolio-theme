@@ -1,0 +1,21 @@
+
+@use "sass:map";
+
+// foundation/_mixins.scss
+@use "../foundation/variables" as v;
+
+// ブレイクポイントのmixin
+@mixin mq($breakpoint: md) {
+  @media (min-width: map.get(v.$breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// hoverのmixin
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover{
+      @content;
+    }
+  }
+}

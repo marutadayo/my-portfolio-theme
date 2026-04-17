@@ -1,0 +1,41 @@
+
+@use "sass:map";
+
+// Foundation/_page-top.scss
+@use "../foundation/variables" as v;
+@use "../foundation/mixins" as m;
+
+
+.page-top {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  right: 30px;
+  bottom: 42px;
+  background-color: v.$base-color;
+  border: solid 2px v.$color-primary;
+  border-radius: 50%;
+  opacity: 0;
+  transition: .3s ease;
+  justify-content: center;
+  align-items: center;
+  z-index: map.get(v.$z-index, top-btn);
+  display: flex;
+  cursor: pointer;
+  visibility: hidden;
+
+  &.is-show {
+    opacity: 1;
+    visibility: visible;
+    transition: .3s ease;
+  }
+  
+  &__arrow {
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-top: 3px solid v.$color-secondary;
+    border-right: 3px solid v.$color-secondary;
+    transform: translateY(20%) rotate(-45deg);
+  }
+}

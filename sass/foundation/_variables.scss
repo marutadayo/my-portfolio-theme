@@ -1,0 +1,53 @@
+
+
+// foundaition/_variables.scss
+
+// layer System
+
+$z-index: (
+  back: -1,
+  front: 1,
+  top-btn: 50,
+  global-nav: 100,
+  modal: 1000
+);
+
+// Responsive breakpoints
+
+$breakpoints: (
+  sm: 375px,
+  md: 768px,
+  lg: 1280px,
+  xl: 1920px
+);
+
+// Color System
+
+$color-primary: #6f8f7a;
+$color-secondary: #2f5d4e;
+$base-color: #fff;
+$txt-color: #222;
+
+// Typography System
+
+$font-xs: 1.6rem;
+$font-sm: 2rem;
+$font-md: 2.4rem;
+$font-lg: 3.2rem;
+$font-xl: 4.8rem;
+$font-xxl: 6.4rem;
+$font-xxxl: 9.6rem;
+$font-weight-base: 400;
+$font-weight-bd: 700;
+
+// Spacing Scale
+
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 48px;
+$space-8: 64px;
+$space-9: 96px;
