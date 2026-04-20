@@ -2347,6 +2347,18 @@ body {
 .modal-my-portfolio__content-coding-plan {
   padding-bottom: 48px;
 }
+.modal-my-portfolio__coding-plan-img-wrap {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .modal-my-portfolio__coding-plan-img-wrap {
+    width: 45%;
+    flex-shrink: 0;
+  }
+}
+.modal-my-portfolio__coding-plan-inner:first-child {
+  padding-bottom: 24px;
+}
 .modal-my-portfolio__img-label-wrap {
   display: flex;
   flex-direction: column;
