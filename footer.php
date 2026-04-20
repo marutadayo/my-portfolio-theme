@@ -145,18 +145,24 @@
             </div>
           </dl>
         </section>
-        <figure class="modal-my-portfolio__coding-plan-inner"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/coding_html_img.jpg" width="625" height="371" alt="コーディング画面の画像" class="modal-my-portfolio__inner-img" loading="lazy" decoding="async">
-          <figcaption class="modal-my-portfolio__img-label-wrap">
-            <div class="modal-my-portfolio__img-label">
-              <h3 class="modal-my-portfolio__label-ttl">【HTML】</h3>
-              <p class="modal-my-portfolio__label-txt c-sec-text">セマンティックな構造と見やすいインデント</p>
-            </div>
-            <div class="modal-my-portfolio__img-label">
-              <h3 class="modal-my-portfolio__label-ttl">【SCSS】</h3>
-              <p class="modal-my-portfolio__label-txt c-sec-text">mixinや変数を用いたコンポーネント管理とファイル分割</p>
-            </div>
-          </figcaption>
-        </figure>
+        <div class="modal-my-portfolio__coding-plan-img-wrap">
+          <figure class="modal-my-portfolio__coding-plan-inner"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/coding_html_img.jpg" width="625" height="371" alt="コーディング画面の画像" class="modal-my-portfolio__inner-img" loading="lazy" decoding="async">
+            <figcaption class="modal-my-portfolio__img-label-wrap">
+              <div class="modal-my-portfolio__img-label">
+                <h3 class="modal-my-portfolio__label-ttl">【HTML】</h3>
+                <p class="modal-my-portfolio__label-txt c-sec-text">セマンティックな構造と見やすいインデント</p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="modal-my-portfolio__coding-plan-inner"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/coding_scss_img.jpg" width="625" height="371" alt="コーディング画面の画像" class="modal-my-portfolio__inner-img" loading="lazy" decoding="async">
+            <figcaption class="modal-my-portfolio__img-label-wrap">
+              <div class="modal-my-portfolio__img-label">
+                <h3 class="modal-my-portfolio__label-ttl">【SCSS】</h3>
+                <p class="modal-my-portfolio__label-txt c-sec-text">mixinや変数を用いたコンポーネント管理とファイル分割</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </div>
