@@ -70,7 +70,7 @@
             </div>
             <div class="modal-my-portfolio__detail-row--col">
               <dt class="modal-my-portfolio__detail-row modal-my-portfolio__detail-label--wd">公開URL</dt>
-              <dd class="modal-my-portfolio__detail-txt c-sec-text"><a href="https://cozy101.xsrv.jp/ishikawa/iy_pf" class="modal-my-portfolio__detail-link--ws">https://cozy101.xsrv.jp/ishikawa/iy_pf</a></dd>
+              <dd class="modal-my-portfolio__detail-txt c-sec-text"><a href="https://cozy101.xsrv.jp/ishikawa/iy_pf" class="modal-my-portfolio__detail-link--ws">https://cozy101.xsrv.jp/ishikawa/portfolio/</a></dd>
             </div>
           </dl>
         </section>
