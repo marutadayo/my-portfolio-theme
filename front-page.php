@@ -186,7 +186,7 @@
           <dl class="about__skill-list">
             <div class="about__list-item">
               <dt class="about__item-name">WordPress</dt>
-              <dd class="about__item-detail c-sec-text">text準備中text準備中text準備中text準備中text準備中text準備中text準備中text準備中text準備中text準備中text準備中</dd>
+              <dd class="about__item-detail c-sec-text">オリジナルテーマの自作や既存テーマの改修や、PHPの基礎構文を利用し、WordPress独自のループ処理や条件分岐、テンプレートタグを用いたサイト構築が可能です。</dd>
             </div>
           </dl>
         </div>
