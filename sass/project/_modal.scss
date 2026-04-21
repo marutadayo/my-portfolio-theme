@@ -401,10 +401,6 @@
     linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 24px 24px;
 
-  @include m.mq(md) {
-    padding-top: v.$space-6;
-  }
-
   @include m.mq(lg) {
     background-size: 32px 32px;
   }
