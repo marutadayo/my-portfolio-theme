@@ -10,177 +10,196 @@
 <div class="page-top js-page-top"><span class="page-top__arrow"></span></div>
 
 <?php
-  // 1. WORKSのカスタム投稿を全件取得する設定
-  $args = array(
-    'post_type' => 'works',
-    'posts_per_page' => -1,
-  );
-  $works_query = new WP_Query( $args );
+// 1. WORKSのカスタム投稿を全件取得する設定
+$args = array(
+  'post_type' => 'works',
+  'posts_per_page' => -1,
+);
+$works_query = new WP_Query($args);
 
-  // 2. WORKSの記事が存在すればループ
-  if ( $works_query->have_posts() ) :
-    while ( $works_query->have_posts() ) : $works_query->the_post();
+// 2. WORKSの記事が存在すればループ
+if ($works_query->have_posts()) :
+  while ($works_query->have_posts()) : $works_query->the_post();
 
     // ★ 記事のスラッグ（my-portfolio や neorebese など）を安全に取得
-    $slug = get_post_field( 'post_name', get_the_ID() );
+    $slug = get_post_field('post_name', get_the_ID());
 ?>
 
-  <div id="modal-<?php echo esc_attr($slug); ?>" class="modal-<?php echo esc_attr($slug); ?> js-modal" role="dialog" aria-modal="true">
-    <div class="modal-<?php echo esc_attr($slug); ?>__wrap">
-      
-      <div class="modal-<?php echo esc_attr($slug); ?>__heading-area">
-        <h2 class="modal-<?php echo esc_attr($slug); ?>__area-ttl">サイト名: <?php the_field('work_title'); ?></h2>
-        <button type="button" class="modal-<?php echo esc_attr($slug); ?>__area-btn js-modal-close" aria-label="モーダルを閉じる">
-          <span class="modal-<?php echo esc_attr($slug); ?>__close-ber"></span>
-          <span class="modal-<?php echo esc_attr($slug); ?>__close-ber"></span>
-        </button>
-      </div>
+    <div id="modal-<?php echo esc_attr($slug); ?>" class="modal-<?php echo esc_attr($slug); ?> js-modal" role="dialog" aria-modal="true">
+      <div class="modal-<?php echo esc_attr($slug); ?>__wrap">
 
-      <div class="modal-<?php echo esc_attr($slug); ?>__content l-container">
-        
-        <div class="modal-<?php echo esc_attr($slug); ?>__content-summary">
-          <div class="modal-<?php echo esc_attr($slug); ?>__summary-inner">
-            <img src="<?php the_field('modal_main_img'); ?>" width="1875" height="1664" alt="<?php the_field('work_title'); ?>" class="modal-<?php echo esc_attr($slug); ?>__inner-img" loading="lazy" decoding="async">
-          </div>
-          <section class="modal-<?php echo esc_attr($slug); ?>__summary-group">
-            <h3 class="modal-<?php echo esc_attr($slug); ?>__summary-ttl">制作概要</h3>
-            <dl class="modal-<?php echo esc_attr($slug); ?>__summary-detail">
-              <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
-                <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">作品名</dt>
-                <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php the_field('work_title'); ?></dd>
-              </div>
-              <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
-                <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">使用技術</dt>
-                <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php the_field('work_skills'); ?></dd>
-              </div>
-              <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
-                <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">製作期間</dt>
-                <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php the_field('work_period'); ?></dd>
-              </div>
-              <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--base">
-                <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">担当範囲</dt>
-                <div class="modal-<?php echo esc_attr($slug); ?>__detail-wrap">
-                  <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('work_role'))); ?></dd>
-                </div>
-              </div>
-              <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
-                <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">公開URL</dt>
-                <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><a href="<?php the_field('work_url'); ?>" class="modal-<?php echo esc_attr($slug); ?>__detail-link--ws" target="_blank" rel="noopener"><?php the_field('work_url'); ?></a></dd>
-              </div>
-            </dl>
-          </section>
+        <div class="modal-<?php echo esc_attr($slug); ?>__heading-area">
+          <h2 class="modal-<?php echo esc_attr($slug); ?>__area-ttl">サイト名: <?php the_field('work_title'); ?></h2>
+          <button type="button" class="modal-<?php echo esc_attr($slug); ?>__area-btn js-modal-close" aria-label="モーダルを閉じる">
+            <span class="modal-<?php echo esc_attr($slug); ?>__close-ber"></span>
+            <span class="modal-<?php echo esc_attr($slug); ?>__close-ber"></span>
+          </button>
         </div>
 
-        <section class="modal-<?php echo esc_attr($slug); ?>__content-requirements">
-          <h3 class="modal-<?php echo esc_attr($slug); ?>__requirements-ttl">要件定義</h3>
-          <dl class="modal-<?php echo esc_attr($slug); ?>__requirements-detail">
-            <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
-              <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label">制作背景</dt>
-              <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('req_background'))); ?></dd>
-            </div>
-            <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
-              <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label">ターゲット</dt>
-              <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('req_target'))); ?></dd>
-            </div>
-            <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
-              <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label">訴求ポイント</dt>
-              <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('req_appeal'))); ?></dd>
-            </div>
-          </dl>
-        </section>
+        <div class="modal-<?php echo esc_attr($slug); ?>__content l-container">
 
-        <div class="modal-<?php echo esc_attr($slug); ?>__content-design-plan">
-          <section class="modal-<?php echo esc_attr($slug); ?>__design-plan">
-            <h3 class="modal-<?php echo esc_attr($slug); ?>__design-plan-ttl">デザイン設計</h3>
-            <dl class="modal-<?php echo esc_attr($slug); ?>__design-plan-detail">
-              
-              <?php for($i=1; $i<=5; $i++): ?>
-                <?php if( get_field('design_title_' . $i) ): ?>
-                  <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
-                    <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label"><?php the_field('design_title_' . $i); ?></dt>
-                    <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('design_text_' . $i))); ?></dd>
+          <div class="modal-<?php echo esc_attr($slug); ?>__content-summary">
+            <div class="modal-<?php echo esc_attr($slug); ?>__summary-inner">
+              <img src="<?php the_field('modal_main_img'); ?>" width="1875" height="1664" alt="<?php the_field('work_title'); ?>" class="modal-<?php echo esc_attr($slug); ?>__inner-img" loading="lazy" decoding="async">
+            </div>
+            <section class="modal-<?php echo esc_attr($slug); ?>__summary-group">
+              <h3 class="modal-<?php echo esc_attr($slug); ?>__summary-ttl">制作概要</h3>
+              <dl class="modal-<?php echo esc_attr($slug); ?>__summary-detail">
+                <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
+                  <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">作品名</dt>
+                  <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php the_field('work_title'); ?></dd>
+                </div>
+                <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
+                  <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">使用技術</dt>
+                  <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php the_field('work_skills'); ?></dd>
+                </div>
+                <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
+                  <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">製作期間</dt>
+                  <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php the_field('work_period'); ?></dd>
+                </div>
+                <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--base">
+                  <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">担当範囲</dt>
+                  <div class="modal-<?php echo esc_attr($slug); ?>__detail-wrap">
+                    <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('work_role'))); ?></dd>
                   </div>
-                <?php endif; ?>
-              <?php endfor; ?>
-
-            </dl>
-          </section>
-          
-          <?php if( get_field('design_img_1') || get_field('design_img_2') ): ?>
-          <div class="modal-<?php echo esc_attr($slug); ?>__design-plan-inner-wrap">
-            <?php if( get_field('design_img_1') ): ?>
-            <div class="modal-<?php echo esc_attr($slug); ?>__design-plan-inner">
-              <img src="<?php the_field('design_img_1'); ?>" width="900" height="2193" alt="デザイン画像" class="modal-<?php echo esc_attr($slug); ?>__design-inner-img" loading="lazy" decoding="async">
-            </div>
-            <?php endif; ?>
-            <?php if( get_field('design_img_2') ): ?>
-            <div class="modal-<?php echo esc_attr($slug); ?>__design-plan-inner">
-              <img src="<?php the_field('design_img_2'); ?>" width="900" height="2193" alt="デザイン画像" class="modal-<?php echo esc_attr($slug); ?>__design-inner-img" loading="lazy" decoding="async">
-            </div>
-            <?php endif; ?>
+                </div>
+                <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
+                  <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">公開URL</dt>
+                  <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><a href="<?php the_field('work_url'); ?>" class="modal-<?php echo esc_attr($slug); ?>__detail-link--ws" target="_blank" rel="noopener"><?php the_field('work_url'); ?></a></dd>
+                </div>
+              </dl>
+            </section>
           </div>
-          <?php endif; ?>
-        </div>
 
-        <div class="modal-<?php echo esc_attr($slug); ?>__content-coding-plan">
-          <section class="modal-<?php echo esc_attr($slug); ?>__coding-plan">
-            <h3 class="modal-<?php echo esc_attr($slug); ?>__coding-plan-ttl">コーディング設計</h3>
-            <dl class="modal-<?php echo esc_attr($slug); ?>__coding-plan-detail">
-              
-              <?php for($i=1; $i<=5; $i++): ?>
-                <?php if( get_field('coding_title_' . $i) ): ?>
-                  <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
-                    <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label"><?php the_field('coding_title_' . $i); ?></dt>
-                    <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('coding_text_' . $i))); ?></dd>
-                  </div>
-                <?php endif; ?>
-              <?php endfor; ?>
-
+          <section class="modal-<?php echo esc_attr($slug); ?>__content-requirements">
+            <h3 class="modal-<?php echo esc_attr($slug); ?>__requirements-ttl">要件定義</h3>
+            <dl class="modal-<?php echo esc_attr($slug); ?>__requirements-detail">
+              <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
+                <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label">制作背景</dt>
+                <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('req_background'))); ?></dd>
+              </div>
+              <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
+                <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label">ターゲット</dt>
+                <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('req_target'))); ?></dd>
+              </div>
+              <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
+                <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label">訴求ポイント</dt>
+                <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('req_appeal'))); ?></dd>
+              </div>
             </dl>
           </section>
 
-          <?php if( get_field('coding_img_1') || get_field('coding_img_2') ): ?>
-          <div class="modal-<?php echo esc_attr($slug); ?>__coding-plan-img-wrap">
-            
-            <?php if( get_field('coding_img_1') ): ?>
-            <figure class="modal-<?php echo esc_attr($slug); ?>__coding-plan-inner">
-              <img src="<?php the_field('coding_img_1'); ?>" width="625" height="371" alt="コーディング画像" class="modal-<?php echo esc_attr($slug); ?>__inner-img" loading="lazy" decoding="async">
-              <?php if( get_field('coding_img_1_ttl') || get_field('coding_img_1_txt') ): ?>
-              <figcaption class="modal-<?php echo esc_attr($slug); ?>__img-label-wrap">
-                <div class="modal-<?php echo esc_attr($slug); ?>__img-label">
-                  <h3 class="modal-<?php echo esc_attr($slug); ?>__label-ttl"><?php the_field('coding_img_1_ttl'); ?></h3>
-                  <p class="modal-<?php echo esc_attr($slug); ?>__label-txt c-sec-text"><?php echo nl2br(esc_html(get_field('coding_img_1_txt'))); ?></p>
-                </div>
-              </figcaption>
-              <?php endif; ?>
-            </figure>
-            <?php endif; ?>
+          <div class="modal-<?php echo esc_attr($slug); ?>__content-design-plan">
+            <section class="modal-<?php echo esc_attr($slug); ?>__design-plan">
+              <h3 class="modal-<?php echo esc_attr($slug); ?>__design-plan-ttl">デザイン設計</h3>
+              <dl class="modal-<?php echo esc_attr($slug); ?>__design-plan-detail">
 
-            <?php if( get_field('coding_img_2') ): ?>
-            <figure class="modal-<?php echo esc_attr($slug); ?>__coding-plan-inner">
-              <img src="<?php the_field('coding_img_2'); ?>" width="625" height="371" alt="コーディング画像" class="modal-<?php echo esc_attr($slug); ?>__inner-img" loading="lazy" decoding="async">
-              <?php if( get_field('coding_img_2_ttl') || get_field('coding_img_2_txt') ): ?>
-              <figcaption class="modal-<?php echo esc_attr($slug); ?>__img-label-wrap">
-                <div class="modal-<?php echo esc_attr($slug); ?>__img-label">
-                  <h3 class="modal-<?php echo esc_attr($slug); ?>__label-ttl"><?php the_field('coding_img_2_ttl'); ?></h3>
-                  <p class="modal-<?php echo esc_attr($slug); ?>__label-txt c-sec-text"><?php echo nl2br(esc_html(get_field('coding_img_2_txt'))); ?></p>
-                </div>
-              </figcaption>
-              <?php endif; ?>
-            </figure>
+                <?php for ($i = 1; $i <= 5; $i++): ?>
+                  <?php if (get_field('design_title_' . $i)): ?>
+                    <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
+                      <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label"><?php the_field('design_title_' . $i); ?></dt>
+                      <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('design_text_' . $i))); ?></dd>
+                    </div>
+                  <?php endif; ?>
+                <?php endfor; ?>
+
+              </dl>
+            </section>
+
+            <?php if (get_field('design_img_1') || get_field('design_img_2')): ?>
+              <div class="modal-<?php echo esc_attr($slug); ?>__design-plan-inner-wrap">
+                <?php if (get_field('design_img_1')): ?>
+                  <div class="modal-<?php echo esc_attr($slug); ?>__design-plan-inner">
+                    <img src="<?php the_field('design_img_1'); ?>" width="900" height="2193" alt="デザイン画像" class="modal-<?php echo esc_attr($slug); ?>__design-inner-img" loading="lazy" decoding="async">
+                  </div>
+                <?php endif; ?>
+                <?php if (get_field('design_img_2')): ?>
+                  <div class="modal-<?php echo esc_attr($slug); ?>__design-plan-inner">
+                    <img src="<?php the_field('design_img_2'); ?>" width="900" height="2193" alt="デザイン画像" class="modal-<?php echo esc_attr($slug); ?>__design-inner-img" loading="lazy" decoding="async">
+                  </div>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+          </div>
+
+          <div class="modal-<?php echo esc_attr($slug); ?>__content-coding-plan">
+            <section class="modal-<?php echo esc_attr($slug); ?>__coding-plan">
+              <h3 class="modal-<?php echo esc_attr($slug); ?>__coding-plan-ttl">コーディング設計</h3>
+              <dl class="modal-<?php echo esc_attr($slug); ?>__coding-plan-detail">
+
+                <?php for ($i = 1; $i <= 5; $i++): ?>
+                  <?php if (get_field('coding_title_' . $i)): ?>
+                    <div class="modal-<?php echo esc_attr($slug); ?>__detail-row">
+                      <dt class="modal-<?php echo esc_attr($slug); ?>__detail-label"><?php the_field('coding_title_' . $i); ?></dt>
+                      <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('coding_text_' . $i))); ?></dd>
+                    </div>
+                  <?php endif; ?>
+                <?php endfor; ?>
+
+              </dl>
+            </section>
+
+            <?php if (get_field('coding_img_1') || get_field('coding_img_2')): ?>
+              <div class="modal-<?php echo esc_attr($slug); ?>__coding-plan-img-wrap">
+
+                <?php if (get_field('coding_img_1')): ?>
+                  <figure class="modal-<?php echo esc_attr($slug); ?>__coding-plan-inner">
+                    <img src="<?php the_field('coding_img_1'); ?>" width="625" height="371" alt="コーディング画像" class="modal-<?php echo esc_attr($slug); ?>__inner-img" loading="lazy" decoding="async">
+                    <?php if (get_field('coding_img_1_ttl') || get_field('coding_img_1_txt')): ?>
+                      <figcaption class="modal-<?php echo esc_attr($slug); ?>__img-label-wrap">
+                        <div class="modal-<?php echo esc_attr($slug); ?>__img-label">
+                          <h3 class="modal-<?php echo esc_attr($slug); ?>__label-ttl"><?php the_field('coding_img_1_ttl'); ?></h3>
+                          <p class="modal-<?php echo esc_attr($slug); ?>__label-txt c-sec-text"><?php echo nl2br(esc_html(get_field('coding_img_1_txt'))); ?></p>
+                        </div>
+                      </figcaption>
+                    <?php endif; ?>
+                  </figure>
+                <?php endif; ?>
+
+                <?php if (get_field('coding_img_2')): ?>
+                  <figure class="modal-<?php echo esc_attr($slug); ?>__coding-plan-inner">
+                    <img src="<?php the_field('coding_img_2'); ?>" width="625" height="371" alt="コーディング画像" class="modal-<?php echo esc_attr($slug); ?>__inner-img" loading="lazy" decoding="async">
+                    <?php if (get_field('coding_img_2_ttl') || get_field('coding_img_2_txt')): ?>
+                      <figcaption class="modal-<?php echo esc_attr($slug); ?>__img-label-wrap">
+                        <div class="modal-<?php echo esc_attr($slug); ?>__img-label">
+                          <h3 class="modal-<?php echo esc_attr($slug); ?>__label-ttl"><?php the_field('coding_img_2_ttl'); ?></h3>
+                          <p class="modal-<?php echo esc_attr($slug); ?>__label-txt c-sec-text"><?php echo nl2br(esc_html(get_field('coding_img_2_txt'))); ?></p>
+                        </div>
+                      </figcaption>
+                    <?php endif; ?>
+                  </figure>
+                <?php endif; ?>
+
+              </div>
             <?php endif; ?>
 
           </div>
-          <?php endif; ?>
 
+          <?php if (get_field('full_img_1') || get_field('full_img_2')): ?>
+            <div class="modal-<?php echo esc_attr($slug); ?>__content-img-wrap">
+
+              <?php if (get_field('full_img_1')): ?>
+                <div class="modal-<?php echo esc_attr($slug); ?>__content-inner">
+                  <img src="<?php the_field('full_img_1'); ?>" alt="SP版サイト画像" class="modal-<?php echo esc_attr($slug); ?>__inner-img" loading="lazy" decoding="async">
+                </div>
+              <?php endif; ?>
+
+              <?php if (get_field('full_img_2')): ?>
+                <div class="modal-<?php echo esc_attr($slug); ?>__content-inner">
+                  <img src="<?php the_field('full_img_2'); ?>" alt="PC版サイト画像" class="modal-<?php echo esc_attr($slug); ?>__inner-img" loading="lazy" decoding="async">
+                </div>
+              <?php endif; ?>
+
+            </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
-  </div>
-  <?php 
-    endwhile;
-    wp_reset_postdata(); // 3. ループの最後には必ずこれを入れてリセット！
-  endif; 
+
+<?php
+  endwhile;
+  wp_reset_postdata(); // 3. ループの最後には必ずこれを入れてリセット！
+endif;
 ?>
 
 
@@ -206,4 +225,5 @@
 
 <?php wp_footer(); ?>
 </body>
+
 </html>
