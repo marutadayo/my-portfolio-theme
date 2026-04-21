@@ -8,30 +8,7 @@
 </footer>
 
 <div class="page-top js-page-top"><span class="page-top__arrow"></span></div>
-</div>
-<div id="modal-bizen-fc" class="modal-bizen-fc js-modal" role="dialog" aria-modal="true">
-  <div class="modal-bizen-fc__wrap">
-    <div class="modal-bizen-fc__heading-area">
-      <h2 class="modal-bizen-fc__area-ttl" id="modal-title-bizen">サイト名: 美禅独立開業 様</h2>
-      <button type="button" class="js-modal-close" aria-label="モーダルを閉じる">
-        <span class="modal-bizen-fc__close-ber"></span>
-        <span class="modal-bizen-fc__close-ber"></span>
-      </button>
-    </div>
-    <div class="modal-bizen-fc__content">
-      <div class="modal-bizen-fc__content-summary">
-        <div class="modal-bizen-fc__summary-inner"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/bizen_fc.jpg" width="625" height="420" alt="美禅独立開業様のwebサイト" class="modal-bizen-fc__inner-img" loading="lazy" decoding="async"></div>
-        <section class="modal-bizen-fc__content-summary-group">
-          <h3 class="modal-bizen-fc__summary-ttl">制作概要</h3>
-          <dl class="modal-bizen-fc__summary-detail">
-            <dt class="modal-bizen-fc__detail-label">作品名:</dt>
-            <dd class="modal-bizen-fc__detail-txt">美禅独立開業</dd>
-          </dl>
-        </section>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <div id="modal-my-portfolio" class="modal-my-portfolio js-modal" role="dialog" aria-modal="true">
   <div class="modal-my-portfolio__wrap">
