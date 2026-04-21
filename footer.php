@@ -168,6 +168,113 @@
   </div>
 </div>
 
+<div id="modal-neorebese" class="modal-neorebese js-modal" role="dialog" aria-modal="true">
+  <div class="modal-neorebese__wrap">
+    <div class="modal-neorebese__heading-area">
+      <h2 class="modal-neorebese__area-ttl" id="modal-title-neorebese">サイト名: NEOREBASE</h2>
+      <button type="button" class="modal-neorebese__area-btn js-modal-close" aria-label="モーダルを閉じる">
+        <span class="modal-neorebese__close-ber"></span>
+        <span class="modal-neorebese__close-ber"></span>
+      </button>
+    </div>
+    <div class="modal-neorebese__content l-container">
+      <div class="modal-neorebese__content-summary">
+        <div class="modal-neorebese__summary-inner"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/modal_neorebase_img.png" width="1875" height="1664" alt="NEOREBASEサイト" class="modal-neorebese__inner-img" loading="lazy" decoding="async"></div>
+        <section class="modal-neorebese__summary-group">
+          <h3 class="modal-neorebese__summary-ttl">制作概要</h3>
+          <dl class="modal-neorebese__summary-detail">
+            <div class="modal-neorebese__detail-row--col">
+              <dt class="modal-neorebese__detail-row modal-neorebese__detail-label--wd">作品名</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text">NEOREBASE</dd>
+            </div>
+            <div class="modal-neorebese__detail-row--col">
+              <dt class="modal-neorebese__detail-row modal-neorebese__detail-label--wd">使用技術</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text">HTML / CSS / SCSS / JavaScript</dd>
+            </div>
+            <div class="modal-neorebese__detail-row--col">
+              <dt class="modal-neorebese__detail-row modal-neorebese__detail-label--wd">製作期間</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text">4週間</dd>
+            </div>
+            <div class="modal-neorebese__detail-row--base">
+              <dt class="modal-neorebese__detail-row modal-neorebese__detail-label--wd">担当範囲</dt>
+              <div class="modal-neorebese__detail-wrap">
+                <dd class="modal-neorebese__detail-txt c-sec-text">デザイン設計</dd>
+                <dd class="modal-neorebese__detail-txt c-sec-text">HTML / CSS / SCSS 設計</dd>
+                <dd class="modal-neorebese__detail-txt c-sec-text">JavaScript実装</dd>
+              </div>
+            </div>
+            <div class="modal-neorebese__detail-row--col">
+              <dt class="modal-neorebese__detail-row modal-neorebese__detail-label--wd">公開URL</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text"><a href="https://cozy101.xsrv.jp/ishikawa/neorebese" class="modal-neorebese__detail-link--ws">https://cozy101.xsrv.jp/ishikawa/neorebese/</a></dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+      <section class="modal-neorebese__content-requirements">
+        <h3 class="modal-neorebese__requirements-ttl">要件定義</h3>
+        <dl class="modal-neorebese__requirements-detail">
+          <div class="modal-neorebese__detail-row">
+            <dt class="modal-neorebese__detail-label">制作背景</dt>
+            <dd class="modal-neorebese__detail-txt c-sec-text">新しい生徒を集めるため、数あるスクールの中で埋もれないインパクトのあるLPが必要だった。</dd>
+          </div>
+          <div class="modal-neorebese__detail-row">
+            <dt class="modal-neorebese__detail-label">ターゲット</dt>
+            <dd class="modal-neorebese__detail-txt c-sec-text">16〜22歳の本気で野球をやる若者と、その保護者。</dd>
+          </div>
+          <div class="modal-neorebese__detail-row">
+            <dt class="modal-neorebese__detail-label">訴求ポイント</dt>
+            <dd class="modal-neorebese__detail-txt c-sec-text">「本気で上達したい」という若年層の向上心をダイレクトに刺激するため、スクールの圧倒的な熱量と専門性を最優先でアピールしました。競合他社のような無難な表現は避け、エネルギッシュなビジュアルと力強いメッセージを掛け合わせることで、「ここでなら成長できる」という期待感を強く抱かせる構成にしています。</dd>
+          </div>
+        </dl>
+      </section>
+      <div class="modal-neorebese__content-design-plan">
+        <section class="modal-neorebese__design-plan">
+          <h3 class="modal-neorebese__design-plan-ttl">デザイン設計</h3>
+          <dl class="modal-neorebese__design-plan-detail">
+            <div class="modal-neorebese__detail-row">
+              <dt class="modal-neorebese__detail-label">若年層の心を掴む「ダイナミック」な世界観。</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text">ターゲットである10代〜20代前半のアスリートの向上心を刺激するため、活動的で力強いテイストを採用しました。大胆な写真の配置やコントラストの強い配色を用いることで、ファーストビューからスクールの熱量とスピード感が直感的に伝わるビジュアルを追求しています。</dd>
+            </div>
+            <div class="modal-neorebese__detail-row">
+              <dt class="modal-neorebese__detail-label">迷わせない導線設計と、視認性の高いCTA（ボタン）。</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text">最終目的である「体験申し込み」へスムーズに誘導するため、ユーザーの視線移動（Zの法則など）を意識したレイアウトを構築しました。アクションを起こすボタン（CTA）には背景色とコントラストの強いアクセントカラーを用い、どのデバイスから見ても直感的にタップできるUI設計を徹底しています。</dd>
+            </div>
+            <div class="modal-neorebese__detail-row">
+              <dt class="modal-neorebese__detail-label">保護者層に向けた「信頼感」の担保。</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text">若年層に向けた勢いのあるビジュアルの一方で、実際の決裁者となる保護者や指導者に向けた「実績」や「指導理論」のセクションは、情報をすっきりと整理し、誠実な印象を与えるレイアウトに切り替えています。直感的な「憧れ」と、論理的な「安心感」を1つのページ内で違和感なく両立させました。</dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+      <div class="modal-neorebese__content-coding-plan">
+        <section class="modal-neorebese__coding-plan">
+          <h3 class="modal-neorebese__coding-plan-ttl">コーディング設計</h3>
+          <dl class="modal-neorebese__coding-plan-detail">
+            <div class="modal-neorebese__detail-row">
+              <dt class="modal-neorebese__detail-label">ファーストビューで惹きつける、視覚と連動した動的実装。</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text">サイトの顔となるメインビジュアルには、3枚の画像が切り替わるスライダーを実装しました。単なる画像の切り替えにとどまらず、テキスト（キャッチコピー）も連動して変化する仕組みを取り入れることで、ユーザーを飽きさせず、スクールの持つ圧倒的な熱量を直感的に伝えるリッチな表現を実現しています。</dd>
+            </div>
+            <div class="modal-neorebese__detail-row">
+              <dt class="modal-neorebese__detail-label">デザインの意図をブラウザ上で完全再現する緻密な設計。</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text">斜めのラインや要素の重なりなど、ダイナミックで複雑なデザインカンプをどの端末でも比率を崩さずに表現するため、相対単位である vw を戦略的に活用しました。画面サイズが伸縮しても要素のバランスや余白が崩れないよう計算し、デザイナーの意図した「力強さ」を1ミリも損なわない品質を担保しています。</dd>
+            </div>
+            <div class="modal-neorebese__detail-row">
+              <dt class="modal-neorebese__detail-label">デバイスを選ばない、直感的なUI（ナビゲーション）の実装。</dt>
+              <dd class="modal-neorebese__detail-txt c-sec-text">PCとスマートフォンで異なるユーザーの操作性を考慮し、デバイス幅に応じてハンバーガーメニューの出し入れやレイアウトを柔軟に切り替えています。複雑なビジュアル表現の中でも、ユーザーが迷わず目的の情報（体験申し込みなど）に辿り着ける、ストレスフリーな操作性を意識しました。</dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+      <div class="modal-neorebese__content-img-wrap">
+        <div class="modal-neorebese__content-inner"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/neorebase_sp_site_full.jpg" width="445" height="20089" alt="SP版のNEOREBASEサイト" class="modal-neorebese__inner-img" loading="lazy" decoding="async">
+        </div>
+        <div class="modal-neorebese__content-inner"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/neorebase_pc_site_full.jpg" width="1920" height="27071" alt="PC版のNEOREBASEサイト" class="modal-neorebese__inner-img" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="modal-bizen-banner" class="c-image-modal js-modal js-no-scroll" role="dialog" aria-modal="true">
   <button type="button" class="c-image-modal__close-btn js-modal-close" aria-label="モーダルを閉じる">
     <span class="c-image-modal__close-bar"></span>
