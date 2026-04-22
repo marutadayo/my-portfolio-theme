@@ -203,25 +203,39 @@ endif;
 ?>
 
 
-<div id="modal-bizen-banner" class="c-image-modal js-modal js-no-scroll" role="dialog" aria-modal="true">
-  <button type="button" class="c-image-modal__close-btn js-modal-close" aria-label="モーダルを閉じる">
-    <span class="c-image-modal__close-bar"></span>
-    <span class="c-image-modal__close-bar"></span>
-  </button>
-  <div class="c-image-modal__content">
-    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/bizen_all_japan_customer_bn.jpg" width="625" height="403" alt="美禅様のバナー" loading="lazy" decoding="async">
-  </div>
-</div>
+<?php
+// バナーとロゴの両方を一気に取得する設定
+$image_modal_query = new WP_Query(array(
+  'post_type'      => array('banner', 'logo'), // バナーとロゴ、両方の投稿タイプを対象にする
+  'posts_per_page' => -1,                      // 全件取得
+  'post_status'    => 'publish',               // 公開済みのみ
+));
 
-<div id="modal-bizen-logo" class="c-image-modal js-modal js-no-scroll" role="dialog" aria-modal="true">
-  <button type="button" class="c-image-modal__close-btn js-modal-close" aria-label="モーダルを閉じる">
-    <span class="c-image-modal__close-bar"></span>
-    <span class="c-image-modal__close-bar"></span>
-  </button>
-  <div class="c-image-modal__content">
-    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/bizen_logo.png" width="625" height="280" alt="美禅様のカラーロゴ" loading="lazy" decoding="async">
-  </div>
-</div>
+if ($image_modal_query->have_posts()) :
+  while ($image_modal_query->have_posts()) : $image_modal_query->the_post();
+    $slug = $post->post_name; // スラッグ（URL名）をIDとして使用する
+?>
+
+    <div id="modal-<?php echo esc_attr($slug); ?>" class="c-image-modal js-modal js-no-scroll" role="dialog" aria-modal="true">
+      <button type="button" class="c-image-modal__close-btn js-modal-close" aria-label="モーダルを閉じる">
+        <span class="c-image-modal__close-bar"></span>
+        <span class="c-image-modal__close-bar"></span>
+      </button>
+      <div class="c-image-modal__content">
+        <?php
+        // アイキャッチ画像があれば表示する
+        if (has_post_thumbnail()) :
+          the_post_thumbnail('full', array('loading' => 'lazy', 'decoding' => 'async'));
+        endif;
+        ?>
+      </div>
+    </div>
+
+<?php
+  endwhile;
+  wp_reset_postdata(); // クエリをリセットしてメインループに影響を与えないようにする
+endif;
+?>
 
 <?php wp_footer(); ?>
 </body>
