@@ -19,3 +19,4 @@ function my_portfolio_scripts() {
   wp_enqueue_script('main-script', get_template_directory_uri() . '/js/script.js', array(), filemtime(get_theme_file_path('/js/script.js')), true);
 }
 add_action('wp_enqueue_scripts', 'my_portfolio_scripts');
+add_filter('big_image_size_threshold', '__return_false');
