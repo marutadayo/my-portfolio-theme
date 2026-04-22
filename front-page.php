@@ -189,6 +189,12 @@
               <dd class="about__item-detail c-sec-text">オリジナルテーマの自作や既存テーマの改修や、PHPの基礎構文を利用し、WordPress独自のループ処理や条件分岐、テンプレートタグを用いたサイト構築が可能です。</dd>
             </div>
           </dl>
+          <dl class="about__skill-list">
+            <div class="about__list-item">
+              <dt class="about__item-name">Git / Git-Hub</dt>
+              <dd class="about__item-detail c-sec-text">Gitを用いたバージョン管理の基本操作が可能です。変更履歴を適切に管理し、既存コードを壊さない安全な実装を心がけています。</dd>
+            </div>
+          </dl>
         </div>
       </section>
 
