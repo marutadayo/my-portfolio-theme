@@ -51,7 +51,7 @@ if ($works_query->have_posts()) :
                 </div>
                 <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
                   <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">使用技術</dt>
-                  <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php the_field('work_skills'); ?></dd>
+                  <dd class="modal-<?php echo esc_attr($slug); ?>__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('work_skills'))); ?></dd>
                 </div>
                 <div class="modal-<?php echo esc_attr($slug); ?>__detail-row--col">
                   <dt class="modal-<?php echo esc_attr($slug); ?>__detail-row modal-<?php echo esc_attr($slug); ?>__detail-label--wd">製作期間</dt>
