@@ -2531,7 +2531,6 @@ body {
   .modal-bizen-fc__detail-row--col {
     flex-direction: initial;
     justify-content: flex-start;
-    align-items: center;
     gap: 4px;
   }
 }
@@ -2847,7 +2846,6 @@ body {
   .modal-neorebese__detail-row--col {
     flex-direction: initial;
     justify-content: flex-start;
-    align-items: center;
     gap: 4px;
   }
 }
@@ -3159,7 +3157,6 @@ body {
   .modal-bizen__detail-row--col {
     flex-direction: initial;
     justify-content: flex-start;
-    align-items: center;
     gap: 4px;
   }
 }

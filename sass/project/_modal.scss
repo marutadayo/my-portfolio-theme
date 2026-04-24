@@ -550,7 +550,6 @@
       @include m.mq(md) {
         flex-direction: initial;
         justify-content: flex-start;
-        align-items: center;
         gap: v.$space-1;
       }
     }
@@ -891,7 +890,6 @@
       @include m.mq(md) {
         flex-direction: initial;
         justify-content: flex-start;
-        align-items: center;
         gap: v.$space-1;
       }
     }
@@ -1228,7 +1226,6 @@
       @include m.mq(md) {
         flex-direction: initial;
         justify-content: flex-start;
-        align-items: center;
         gap: v.$space-1;
       }
     }
