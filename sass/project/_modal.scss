@@ -1,3 +1,4 @@
+
 @use "sass:map";
 
 // project/_modal.scss
@@ -10,7 +11,10 @@
   touch-action: none;
 }
 
-.modal-my-portfolio {
+// ==============
+// 共通のワークモーダル（リファクタリング・2カラム対応済）
+// ==============
+.c-work-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -201,7 +205,6 @@
     display: flex;
     flex-direction: column;
 
-
     &--col {
       display: flex;
       flex-direction: column;
@@ -209,7 +212,7 @@
       @include m.mq(md) {
         flex-direction: initial;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start; // ★修正済: 中央揃えバグを回避する上揃え
         gap: v.$space-1;
       }
     }
@@ -221,6 +224,7 @@
       @include m.mq(md) {
         flex-direction: initial;
         justify-content: flex-start;
+        align-items: flex-start; // ★修正済: 中央揃えバグを回避する上揃え
         gap: v.$space-1;
       }
     }
@@ -301,28 +305,25 @@
     border: 1px solid v.$color-primary;
   }
 
+  // ★修正済: ベースのレイアウトは全て縦積み(column)に統一
   &__content-design-plan,
   &__content-coding-plan {
     display: flex;
     flex-direction: column;
     gap: v.$space-6;
-
-    @include m.mq(md) {
-      flex-direction: initial;
-      justify-content: space-between;
-    }
-  }
-
-  &__content-coding-plan {
-    padding-bottom: v.$space-7;
   }
 
   &__coding-plan-img-wrap {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-5;
+    padding-bottom: v.$space-7;
 
-    @include m.mq(md) {
-      width: 45%;
-      flex-shrink: 0;
+    @include m.mq(lg) {
+      flex-direction: initial;
+      justify-content: space-between;
+      padding-bottom: v.$space-8;
     }
   }
 
@@ -349,645 +350,8 @@
   &__label-txt {
     text-align: center;
   }
-}
 
-.modal-bizen-fc {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100dvh;
-  z-index: map.get(v.$z-index, modal);
-  overflow-y: auto;
-  overscroll-behavior-y: none;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity .5s ease, visibility .5s ease, transform .5s ease;
-  transform: scale(0.6);
-  display: flex;
-  flex-direction: column;
-  background-color: v.$base-color;
-  /* 方眼背景 css */
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 24px 24px;
-
-  @include m.mq(lg) {
-    background-size: 32px 32px;
-  }
-
-  &.modal-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: scale(1);
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-7;
-  }
-
-  &__heading-area {
-    width: 100%;
-    background-color: v.$color-primary;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    position: sticky;
-    height: auto;
-    top: 0;
-    z-index: map.get(v.$z-index, front);
-  }
-
-  &__area-ttl {
-    font-family: serif;
-    font-size: v.$font-md;
-    color: v.$base-color;
-    padding: v.$space-5 0;
-    line-height: 1.25;
-
-    @include m.mq(md) {
-      text-align: center;
-    }
-  }
-
-  &__area-btn {
-    width: 44px;
-    height: 44px;
-    border: 2px solid v.$base-color;
-    display: block;
-    background-color: rgba(255, 255, 255, 0.3);
-
-    @include m.mq(md) {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 50%;
-      right: 24px;
-      transform: translateY(-50%);
-    }
-  }
-
-  &__close-ber {
-    width: 30px;
-    height: 2px;
-    margin: 0 auto;
-    background-color: v.$base-color;
-    display: block;
-  }
-
-  &__close-ber:first-child {
-    transform: rotate(45deg);
-  }
-
-  &__close-ber:last-child {
-    transform: rotate(-45deg);
-  }
-
-  &__content-summary {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-
-    @include m.mq(md) {
-      flex-direction: initial;
-      justify-content: center;
-      gap: v.$space-5;
-    }
-  }
-
-  &__summary-inner {
-    @include m.mq(md) {
-      order: 2;
-      width: 340px;
-    }
-
-    @include m.mq(lg) {
-      width: 458px;
-    }
-
-    @include m.mq(xl) {
-      width: 100%;
-    }
-  }
-
-  &__inner-img {
-    width: 100%;
-  }
-
-  &__summary-group {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-    text-align: center;
-    padding-top: v.$space-5;
-
-    @include m.mq(md) {
-      order: 1;
-      padding-top: 0;
-      width: 340px;
-      gap: 0;
-    }
-
-    @include m.mq(lg) {
-      width: 458px;
-    }
-
-    @include m.mq(xl) {
-      width: 100%;
-    }
-  }
-
-  &__summary-ttl,
-  &__requirements-ttl,
-  &__design-plan-ttl,
-  &__coding-plan-ttl {
-    width: fit-content;
-    background-color: v.$color-primary;
-    font-size: v.$font-sm;
-    font-weight: v.$font-weight-bd;
-    line-height: 1.25;
-    color: v.$base-color;
-    padding: v.$space-1 v.$space-4;
-    letter-spacing: 0.08em;
-    margin: 0 auto v.$space-4;
-
-    @include m.mq(md) {
-      margin: 0 0 v.$space-5;
-    }
-  }
-
-  &__summary-detail,
-  &__requirements-detail,
-  &__design-plan-detail,
-  &__coding-plan-detail {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-  }
-
-  &__design-plan-detail,
-  &__coding-plan-detail {
-    @include m.mq(md) {
-      gap: v.$space-5;
-    }
-  }
-
-  &__detail-row {
-    display: flex;
-    flex-direction: column;
-
-
-    &--col {
-      display: flex;
-      flex-direction: column;
-
-      @include m.mq(md) {
-        flex-direction: initial;
-        justify-content: flex-start;
-        gap: v.$space-1;
-      }
-    }
-
-    &--base {
-      display: flex;
-      flex-direction: column;
-
-      @include m.mq(md) {
-        flex-direction: initial;
-        justify-content: flex-start;
-        gap: v.$space-1;
-      }
-    }
-  }
-
-  &__detail-label {
-    font-size: v.$font-sm;
-    font-weight: v.$font-weight-bd;
-    line-height: 1.25;
-    color: v.$txt-color;
-    padding-bottom: v.$space-1;
-    text-align: center;
-
-    @include m.mq(md) {
-      font-size: v.$font-xs;
-      width: fit-content;
-      text-align: left;
-      padding-bottom: v.$space-2;
-    }
-
-    &--wd {
-      font-size: v.$font-sm;
-      font-weight: v.$font-weight-bd;
-      line-height: 1.75;
-      color: v.$txt-color;
-      padding-bottom: v.$space-1;
-      position: relative;
-
-      &::before {
-        @include m.mq(md) {
-          content: ":";
-          position: absolute;
-          top: 0;
-          right: 0;
-        }
-      }
-
-      @include m.mq(md) {
-        font-size: v.$font-xs;
-        width: 74px;
-        text-align: left;
-        white-space: nowrap;
-        padding-bottom: 0;
-        padding-right: v.$space-2;
-        text-align-last: justify;
-        flex-shrink: 0;
-      }
-    }
-  }
-
-  &__detail-txt {
-    text-align: center;
-
-    @include m.mq(md) {
-      text-align: left;
-    }
-  }
-
-  &__detail-link {
-    &--ws {
-      white-space: nowrap;
-      color: #006DFF;
-    }
-  }
-
-  &__design-plan-inner-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-5;
-
-    @include m.mq(lg) {
-      flex-direction: initial;
-      justify-content: space-between;
-    }
-  }
-
-  &__design-inner-img {
-    border: 1px solid v.$color-primary;
-  }
-
-  &__content-design-plan,
-  &__content-coding-plan {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-6;
-
-    @include m.mq(md) {
-      flex-direction: initial;
-      justify-content: space-between;
-    }
-  }
-
-  &__content-coding-plan {
-    padding-bottom: v.$space-7;
-  }
-
-  &__coding-plan-img-wrap {
-    width: 100%;
-
-    @include m.mq(md) {
-      width: 45%;
-      flex-shrink: 0;
-    }
-  }
-
-  &__coding-plan-inner:first-child {
-    padding-bottom: v.$space-5;
-  }
-
-  &__img-label-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-    margin-top: v.$space-2;
-  }
-
-  &__label-ttl {
-    font-size: v.$font-sm;
-    font-weight: v.$font-weight-bd;
-    line-height: 1.25;
-    color: v.$txt-color;
-    padding-bottom: v.$space-1;
-    text-align: center;
-  }
-
-  &__label-txt {
-    text-align: center;
-  }
-}
-
-.modal-neorebese {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100dvh;
-  z-index: map.get(v.$z-index, modal);
-  overflow-y: auto;
-  overscroll-behavior-y: none;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity .5s ease, visibility .5s ease, transform .5s ease;
-  transform: scale(0.6);
-  display: flex;
-  flex-direction: column;
-  background-color: v.$base-color;
-  /* 方眼背景 css */
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 24px 24px;
-
-  @include m.mq(lg) {
-    background-size: 32px 32px;
-  }
-
-  &.modal-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: scale(1);
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-7;
-  }
-
-  &__heading-area {
-    width: 100%;
-    background-color: v.$color-primary;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    position: sticky;
-    height: auto;
-    top: 0;
-    z-index: map.get(v.$z-index, front);
-  }
-
-  &__area-ttl {
-    font-family: serif;
-    font-size: v.$font-md;
-    color: v.$base-color;
-    padding: v.$space-5 0;
-    line-height: 1.25;
-
-    @include m.mq(md) {
-      text-align: center;
-    }
-  }
-
-  &__area-btn {
-    width: 44px;
-    height: 44px;
-    border: 2px solid v.$base-color;
-    display: block;
-    background-color: rgba(255, 255, 255, 0.3);
-
-    @include m.mq(md) {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 50%;
-      right: 24px;
-      transform: translateY(-50%);
-    }
-  }
-
-  &__close-ber {
-    width: 30px;
-    height: 2px;
-    margin: 0 auto;
-    background-color: v.$base-color;
-    display: block;
-  }
-
-  &__close-ber:first-child {
-    transform: rotate(45deg);
-  }
-
-  &__close-ber:last-child {
-    transform: rotate(-45deg);
-  }
-
-  &__content-summary {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-
-    @include m.mq(md) {
-      flex-direction: initial;
-      justify-content: center;
-      gap: v.$space-5;
-    }
-  }
-
-  &__summary-inner {
-    @include m.mq(md) {
-      order: 2;
-      width: 340px;
-    }
-
-    @include m.mq(lg) {
-      width: 458px;
-    }
-
-    @include m.mq(xl) {
-      width: 100%;
-    }
-  }
-
-  &__inner-img {
-    width: 100%;
-  }
-
-  &__summary-group {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-    text-align: center;
-    padding-top: v.$space-5;
-
-    @include m.mq(md) {
-      order: 1;
-      padding-top: 0;
-      width: 340px;
-      gap: 0;
-    }
-
-    @include m.mq(lg) {
-      width: 458px;
-    }
-
-    @include m.mq(xl) {
-      width: 100%;
-    }
-  }
-
-  &__summary-ttl,
-  &__requirements-ttl,
-  &__design-plan-ttl,
-  &__coding-plan-ttl {
-    width: fit-content;
-    background-color: v.$color-primary;
-    font-size: v.$font-sm;
-    font-weight: v.$font-weight-bd;
-    line-height: 1.25;
-    color: v.$base-color;
-    padding: v.$space-1 v.$space-4;
-    letter-spacing: 0.08em;
-    margin: 0 auto v.$space-4;
-
-    @include m.mq(md) {
-      margin: 0 0 v.$space-5;
-    }
-  }
-
-  &__summary-detail,
-  &__requirements-detail,
-  &__design-plan-detail,
-  &__coding-plan-detail {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-  }
-
-  &__design-plan-detail,
-  &__coding-plan-detail {
-    @include m.mq(md) {
-      gap: v.$space-5;
-    }
-  }
-
-  &__detail-row {
-    display: flex;
-    flex-direction: column;
-
-
-    &--col {
-      display: flex;
-      flex-direction: column;
-
-      @include m.mq(md) {
-        flex-direction: initial;
-        justify-content: flex-start;
-        gap: v.$space-1;
-      }
-    }
-
-    &--base {
-      display: flex;
-      flex-direction: column;
-
-      @include m.mq(md) {
-        flex-direction: initial;
-        justify-content: flex-start;
-        gap: v.$space-1;
-      }
-    }
-  }
-
-  &__detail-label {
-    font-size: v.$font-sm;
-    font-weight: v.$font-weight-bd;
-    line-height: 1.25;
-    color: v.$txt-color;
-    padding-bottom: v.$space-1;
-    text-align: center;
-
-    @include m.mq(md) {
-      font-size: v.$font-xs;
-      width: fit-content;
-      text-align: left;
-      padding-bottom: v.$space-2;
-    }
-
-    &--wd {
-      font-size: v.$font-sm;
-      font-weight: v.$font-weight-bd;
-      line-height: 1.75;
-      color: v.$txt-color;
-      padding-bottom: v.$space-1;
-      position: relative;
-
-      &::before {
-        @include m.mq(md) {
-          content: ":";
-          position: absolute;
-          top: 0;
-          right: 0;
-        }
-      }
-
-      @include m.mq(md) {
-        font-size: v.$font-xs;
-        width: 74px;
-        text-align: left;
-        white-space: nowrap;
-        padding-bottom: 0;
-        padding-right: v.$space-2;
-        text-align-last: justify;
-        flex-shrink: 0;
-      }
-    }
-  }
-
-  &__detail-txt {
-    text-align: center;
-
-    @include m.mq(md) {
-      text-align: left;
-    }
-  }
-
-  &__detail-link {
-    &--ws {
-      white-space: nowrap;
-      color: #006DFF;
-    }
-  }
-
-  &__design-plan-inner-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-5;
-
-    @include m.mq(lg) {
-      flex-direction: initial;
-      justify-content: space-between;
-    }
-  }
-
-  &__design-inner-img {
-    border: 1px solid v.$color-primary;
-  }
-
-  &__content-design-plan,
-  &__content-coding-plan {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-6;
-  }
-
+  // ★修正済: スマホ・PCの全体画像エリアの復活
   &__content-img-wrap {
     width: 100%;
     display: flex;
@@ -1006,363 +370,56 @@
     padding-bottom: v.$space-5;
   }
 
-  &__img-label-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-    margin-top: v.$space-2;
-  }
-
-  &__label-ttl {
-    font-size: v.$font-sm;
-    font-weight: v.$font-weight-bd;
-    line-height: 1.25;
-    color: v.$txt-color;
-    padding-bottom: v.$space-1;
-    text-align: center;
-  }
-
-  &__label-txt {
-    text-align: center;
-  }
-}
-
-.modal-bizen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100dvh;
-  z-index: map.get(v.$z-index, modal);
-  overflow-y: auto;
-  overscroll-behavior-y: none;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity .5s ease, visibility .5s ease, transform .5s ease;
-  transform: scale(0.6);
-  display: flex;
-  flex-direction: column;
-  background-color: v.$base-color;
-  /* 方眼背景 css */
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 24px 24px;
-
-  @include m.mq(lg) {
-    background-size: 32px 32px;
-  }
-
-  &.modal-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: scale(1);
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-7;
-  }
-
-  &__heading-area {
-    width: 100%;
-    background-color: v.$color-primary;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    position: sticky;
-    height: auto;
-    top: 0;
-    z-index: map.get(v.$z-index, front);
-  }
-
-  &__area-ttl {
-    font-family: serif;
-    font-size: v.$font-md;
-    color: v.$base-color;
-    padding: v.$space-5 0;
-    line-height: 1.25;
-
-    @include m.mq(md) {
-      text-align: center;
-    }
-  }
-
-  &__area-btn {
-    width: 44px;
-    height: 44px;
-    border: 2px solid v.$base-color;
-    display: block;
-    background-color: rgba(255, 255, 255, 0.3);
-
-    @include m.mq(md) {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 50%;
-      right: 24px;
-      transform: translateY(-50%);
-    }
-  }
-
-  &__close-ber {
-    width: 30px;
-    height: 2px;
-    margin: 0 auto;
-    background-color: v.$base-color;
-    display: block;
-  }
-
-  &__close-ber:first-child {
-    transform: rotate(45deg);
-  }
-
-  &__close-ber:last-child {
-    transform: rotate(-45deg);
-  }
-
-  &__content-summary {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-
-    @include m.mq(md) {
-      flex-direction: initial;
-      justify-content: center;
-      gap: v.$space-5;
-    }
-  }
-
-  &__summary-inner {
-    @include m.mq(md) {
-      order: 2;
-      width: 340px;
-    }
-
-    @include m.mq(lg) {
-      width: 458px;
-    }
-
-    @include m.mq(xl) {
-      width: 100%;
-    }
-  }
-
-  &__inner-img {
-    width: 100%;
-  }
-
-  &__summary-group {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-    text-align: center;
-    padding-top: v.$space-5;
-
-    @include m.mq(md) {
-      order: 1;
-      padding-top: 0;
-      width: 340px;
-      gap: 0;
-    }
-
-    @include m.mq(lg) {
-      width: 458px;
-    }
-
-    @include m.mq(xl) {
-      width: 100%;
-    }
-  }
-
-  &__summary-ttl,
-  &__requirements-ttl,
-  &__design-plan-ttl,
-  &__coding-plan-ttl {
-    width: fit-content;
-    background-color: v.$color-primary;
-    font-size: v.$font-sm;
-    font-weight: v.$font-weight-bd;
-    line-height: 1.25;
-    color: v.$base-color;
-    padding: v.$space-1 v.$space-4;
-    letter-spacing: 0.08em;
-    margin: 0 auto v.$space-4;
-
-    @include m.mq(md) {
-      margin: 0 0 v.$space-5;
-    }
-  }
-
-  &__summary-detail,
-  &__requirements-detail,
-  &__design-plan-detail,
-  &__coding-plan-detail {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-  }
-
-  &__design-plan-detail,
-  &__coding-plan-detail {
-    @include m.mq(md) {
-      gap: v.$space-5;
-    }
-  }
-
-  &__detail-row {
-    display: flex;
-    flex-direction: column;
-
-
-    &--col {
-      display: flex;
-      flex-direction: column;
-
+/* =========================================
+     ▼ 【Modifier】2カラム案件（My Portfolio・美禅独立開業）の上書き
+     ========================================= */
+  &--split {
+    // 1. デザイン設計とコーディング設計の親を「横並び（row）」にする
+    .c-work-modal__content-design-plan,
+    .c-work-modal__content-coding-plan {
       @include m.mq(md) {
-        flex-direction: initial;
-        justify-content: flex-start;
-        gap: v.$space-1;
+        display: flex; // 確実にするため追加
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
       }
     }
 
-    &--base {
-      display: flex;
-      flex-direction: column;
-
+    // 2. 左側（テキストエリア）の幅を制限
+    .c-work-modal__design-plan,
+    .c-work-modal__coding-plan {
       @include m.mq(md) {
-        flex-direction: initial;
-        justify-content: flex-start;
-        gap: v.$space-1;
+        width: 48%;
       }
     }
-  }
 
-  &__detail-label {
-    font-size: v.$font-sm;
-    font-weight: v.$font-weight-bd;
-    line-height: 1.25;
-    color: v.$txt-color;
-    padding-bottom: v.$space-1;
-    text-align: center;
-
-    @include m.mq(md) {
-      font-size: v.$font-xs;
-      width: fit-content;
-      text-align: left;
-      padding-bottom: v.$space-2;
+    // 3. 右側（画像エリア）の幅を制限
+    .c-work-modal__design-plan-inner-wrap,
+    .c-work-modal__coding-plan-img-wrap {
+      @include m.mq(md) {
+        width: 45%;
+        flex-shrink: 0; // 画像が潰れないように防御
+      }
     }
 
-    &--wd {
-      font-size: v.$font-sm;
-      font-weight: v.$font-weight-bd;
-      line-height: 1.75;
-      color: v.$txt-color;
-      padding-bottom: v.$space-1;
-      position: relative;
-
-      &::before {
-        @include m.mq(md) {
-          content: ":";
-          position: absolute;
-          top: 0;
-          right: 0;
-        }
-      }
-
+    // 4. 【超重要】コーディング設計の画像は「縦積み(column)」に戻す！
+    // ※ベースCSSの「lg時に横並びになる設定」を強制的に打ち消す
+    .c-work-modal__coding-plan-img-wrap {
       @include m.mq(md) {
-        font-size: v.$font-xs;
-        width: 74px;
-        text-align: left;
-        white-space: nowrap;
         padding-bottom: 0;
-        padding-right: v.$space-2;
-        text-align-last: justify;
-        flex-shrink: 0;
+      }
+      @include m.mq(lg) {
+        flex-direction: column; // 横並びを解除して縦積みに！
+        padding-bottom: 0;
       }
     }
   }
-
-  &__detail-txt {
-    text-align: center;
-
-    @include m.mq(md) {
-      text-align: left;
-    }
-  }
-
-  &__detail-link {
-    &--ws {
-      white-space: nowrap;
-      color: #006DFF;
-    }
-  }
-
-  &__design-plan-inner-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-5;
-
-    @include m.mq(lg) {
-      flex-direction: initial;
-      justify-content: space-between;
-    }
-  }
-
-  &__design-inner-img {
-    border: 1px solid v.$color-primary;
-  }
-
-  &__content-design-plan,
-  &__content-coding-plan {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-6;
-  }
-
-  &__content-img-wrap {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-5;
-    padding-bottom: v.$space-7;
-    
-    @include m.mq(lg) {
-      flex-direction: initial;
-      justify-content: space-between;
-      padding-bottom: v.$space-8;
-    }
-  }
-
-  &__content-inner:first-child {
-    padding-bottom: v.$space-5;
-  }
-
-  &__img-label-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-    margin-top: v.$space-2;
-  }
-
-  &__label-ttl {
-    font-size: v.$font-sm;
-    font-weight: v.$font-weight-bd;
-    line-height: 1.25;
-    color: v.$txt-color;
-    padding-bottom: v.$space-1;
-    text-align: center;
-  }
-
-  &__label-txt {
-    text-align: center;
-  }
 }
 
+
+// ==============
+// 画像単体モーダル (バナー・ロゴ用)
+// ==============
 .c-image-modal {
   position: fixed;
   top: 0;
