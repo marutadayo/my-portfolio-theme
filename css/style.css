@@ -2308,6 +2308,11 @@ body {
   flex-direction: column;
   gap: 32px;
 }
+@media (min-width: 1280px) {
+  .c-work-modal__content-coding-plan {
+    padding-bottom: 64px;
+  }
+}
 .c-work-modal__coding-plan-img-wrap {
   width: 100%;
   display: flex;
@@ -2361,8 +2366,8 @@ body {
 }
 .c-work-modal {
   /* =========================================
-       ▼ 【Modifier】2カラム案件（My Portfolio・美禅独立開業）の上書き
-       ========================================= */
+     ▼ 【Modifier】2カラム案件（My Portfolio・美禅独立開業）の上書き
+     ========================================= */
 }
 @media (min-width: 768px) {
   .c-work-modal--split .c-work-modal__content-design-plan,

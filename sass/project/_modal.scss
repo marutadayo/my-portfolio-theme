@@ -1,4 +1,3 @@
-
 @use "sass:map";
 
 // project/_modal.scss
@@ -313,6 +312,12 @@
     gap: v.$space-6;
   }
 
+  &__content-coding-plan {
+    @include m.mq(lg) {
+      padding-bottom: v.$space-8;
+    }
+  }
+
   &__coding-plan-img-wrap {
     width: 100%;
     display: flex;
@@ -358,7 +363,7 @@
     flex-direction: column;
     gap: v.$space-5;
     padding-bottom: v.$space-7;
-    
+
     @include m.mq(lg) {
       flex-direction: initial;
       justify-content: space-between;
@@ -370,10 +375,11 @@
     padding-bottom: v.$space-5;
   }
 
-/* =========================================
+  /* =========================================
      ▼ 【Modifier】2カラム案件（My Portfolio・美禅独立開業）の上書き
      ========================================= */
   &--split {
+
     // 1. デザイン設計とコーディング設計の親を「横並び（row）」にする
     .c-work-modal__content-design-plan,
     .c-work-modal__content-coding-plan {
@@ -408,6 +414,7 @@
       @include m.mq(md) {
         padding-bottom: 0;
       }
+
       @include m.mq(lg) {
         flex-direction: column; // 横並びを解除して縦積みに！
         padding-bottom: 0;
