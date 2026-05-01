@@ -280,11 +280,18 @@
     @include m.mq(md) {
       text-align: left;
     }
+
+    a {
+      color: #006DFF;
+      text-decoration: underline;
+      word-break: break-all;
+    }
   }
 
   &__detail-link {
     &--ws {
-      white-space: nowrap;
+      text-decoration: underline;
+      word-break: break-all;
       color: #006DFF;
     }
   }
@@ -304,7 +311,7 @@
     border: 1px solid v.$color-primary;
   }
 
-  // ★修正済: ベースのレイアウトは全て縦積み(column)に統一
+  // ベースのレイアウトは全て縦積み(column)に統一
   &__content-design-plan,
   &__content-coding-plan {
     display: flex;
@@ -408,8 +415,6 @@
       }
     }
 
-    // 4. 【超重要】コーディング設計の画像は「縦積み(column)」に戻す！
-    // ※ベースCSSの「lg時に横並びになる設定」を強制的に打ち消す
     .c-work-modal__coding-plan-img-wrap {
       @include m.mq(md) {
         padding-bottom: 0;

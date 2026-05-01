@@ -2285,8 +2285,14 @@ body {
     text-align: left;
   }
 }
+.c-work-modal__detail-txt a {
+  color: #006DFF;
+  text-decoration: underline;
+  word-break: break-all;
+}
 .c-work-modal__detail-link--ws {
-  white-space: nowrap;
+  text-decoration: underline;
+  word-break: break-all;
   color: #006DFF;
 }
 .c-work-modal__design-plan-inner-wrap {
