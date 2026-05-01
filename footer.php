@@ -24,7 +24,7 @@ if ($works_query->have_posts()) :
     // 記事のスラッグを安全に取得
     $slug = get_post_field('post_name', get_the_ID());
 
-    // ★プロのテクニック：特定の案件（レイアウトを変えたい案件）の時だけModifierクラスを付与する
+    // 特定の案件（レイアウトを変えたい案件）の時だけModifierクラスを付与する
     $modifier_class = '';
     if ($slug === 'my-portfolio' || $slug === 'bizen-fc' || $slug === 'iy_pf') {
       $modifier_class = ' c-work-modal--split';
@@ -81,7 +81,7 @@ if ($works_query->have_posts()) :
             <dl class="c-work-modal__requirements-detail">
               <div class="c-work-modal__detail-row">
                 <dt class="c-work-modal__detail-label">制作背景</dt>
-                <dd class="c-work-modal__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('req_background'))); ?></dd>
+                <dd class="c-work-modal__detail-txt c-sec-text"><?php echo make_clickable(nl2br(esc_html(get_field('req_background')))); ?>
               </div>
               <div class="c-work-modal__detail-row">
                 <dt class="c-work-modal__detail-label">ターゲット</dt>
