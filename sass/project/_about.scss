@@ -150,7 +150,7 @@
     color: v.$base-color;
     margin: 0 auto;
     font-size: v.$font-sm;
-    background-color: v.$color-primary;
+    background-color: v.$coding-color;
     border-radius: 9999px;
     position: relative;
 
@@ -159,7 +159,7 @@
       position: absolute;
       width: 22px;
       height: 14px;
-      background-color: v.$color-primary;
+      background-color: v.$coding-color;
       clip-path: polygon(50% 100%, 0 0, 100% 0);
       top: 95%;
       left: 50%;
@@ -167,10 +167,10 @@
     }
 
     &--design {
-      background-color: #7E98C0;
+      background-color: v.$design-color;
 
       &::before {
-        background-color: #7E98C0;
+        background-color: v.$design-color;
       }
     }
   }
