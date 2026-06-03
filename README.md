@@ -3,7 +3,7 @@
 **サイトURL:** [My Portfolio](https://cozy101.xsrv.jp/ishikawa/portfolio/)
 
 ゼロからデザイン・コーディングを行い、WordPressのオリジナルテーマとして構築したポートフォリオサイトです。
-保守性を意識した設計とモダンなフロントエンドの基礎力を重視して開発しました。
+保守性を意識した設計とモダンなフロントエンドの基礎力を意識して開発しました。
 
 ## 🛠 使用技術
 * **Frontend:** HTML5, SCSS, Vanilla JavaScript
@@ -38,5 +38,3 @@ HTML/SCSS/JSでの静的なフロントエンド実装後、実際の運用を�
   ├── /js        (Vanilla JSファイル)
   ├── /images    (画像リソース)
   └── *.php      (WordPressテーマファイル群)
-
-  ---
