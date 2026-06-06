@@ -149,7 +149,7 @@
     // スクロールでフワッと表示させるアニメーション
     const $fadeElem = document.querySelectorAll('.c-js-fade');
     const options = {
-      rootMrtgin: '0px 0px -100px 0px'
+      rootMargin: '0px 0px -100px 0px'
     }
   
     // 交差監視API
