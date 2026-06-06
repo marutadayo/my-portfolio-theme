@@ -23,10 +23,10 @@
 
       <div class="site-header__hero-area area-mask"></div>
       <button class="site-header__nav-btn js-nav-btn" aria-controls="global-nav" aria-expanded="false">
-        <span class="site-header__btn-bar nav-ber"></span>
-        <span class="site-header__btn-bar nav-ber"></span>
-        <span class="site-header__btn-bar nav-ber"></span>
-        <span class="site-header__btn-txt nav-ber">Close</span>
+        <span class="site-header__btn-bar nav-bar"></span>
+        <span class="site-header__btn-bar nav-bar"></span>
+        <span class="site-header__btn-bar nav-bar"></span>
+        <span class="site-header__btn-txt nav-bar">Close</span>
       </button>
       <nav class="site-header__global-nav js-global-nav js-header-nav" id="global-nav">
         <ul class="site-header__nav-list">

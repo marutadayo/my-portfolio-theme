@@ -146,15 +146,11 @@
     transition: .3s ease;
   }
 
-  &__btn-txt.bar-active:nth-child(4) {
-    position: absolute;
+  .nav-bar.bar-active:nth-child(4) {
     bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
     display: block;
-    font-size: 1.4rem;
-    color: v.$color-primary;
     transition: .3s ease;
+    background-color: transparent;
   }
 
   &__btn-bar {
@@ -178,27 +174,23 @@
     bottom: 16px;
   }
 
-  &__btn-bar.bar-active {
+  .nav-bar.bar-active {
     background-color: v.$color-primary;
   }
 
-  &__btn-bar.bar-active:nth-child(2) {
+  .nav-bar.bar-active:nth-child(2) {
     display: none;
   }
 
-  &__btn-bar.bar-active:nth-child(1) {
+  .nav-bar.bar-active:nth-child(1) {
     transform: translateY(-50%) translateX(-50%) rotate(35deg);
     top: 24px;
 
   }
 
-  &__btn-bar.bar-active:nth-child(3) {
+  .nav-bar.bar-active:nth-child(3) {
     transform: translateX(-50%) translateY(-50%) rotate(-35deg);
     top: 24px;
-  }
-
-  &__btn-bar.bar-active {
-    top: 50%;
   }
 
   &__global-nav {

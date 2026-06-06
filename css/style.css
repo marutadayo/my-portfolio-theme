@@ -162,15 +162,11 @@
   color: #6f8f7a;
   transition: 0.3s ease;
 }
-.site-header__btn-txt.bar-active:nth-child(4) {
-  position: absolute;
+.site-header .nav-bar.bar-active:nth-child(4) {
   bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
   display: block;
-  font-size: 1.4rem;
-  color: #6f8f7a;
   transition: 0.3s ease;
+  background-color: transparent;
 }
 .site-header__btn-bar {
   position: absolute;
@@ -190,22 +186,19 @@
   top: auto;
   bottom: 16px;
 }
-.site-header__btn-bar.bar-active {
+.site-header .nav-bar.bar-active {
   background-color: #6f8f7a;
 }
-.site-header__btn-bar.bar-active:nth-child(2) {
+.site-header .nav-bar.bar-active:nth-child(2) {
   display: none;
 }
-.site-header__btn-bar.bar-active:nth-child(1) {
+.site-header .nav-bar.bar-active:nth-child(1) {
   transform: translateY(-50%) translateX(-50%) rotate(35deg);
   top: 24px;
 }
-.site-header__btn-bar.bar-active:nth-child(3) {
+.site-header .nav-bar.bar-active:nth-child(3) {
   transform: translateX(-50%) translateY(-50%) rotate(-35deg);
   top: 24px;
-}
-.site-header__btn-bar.bar-active {
-  top: 50%;
 }
 .site-header__global-nav {
   position: fixed;

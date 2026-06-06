@@ -9,7 +9,7 @@
     const closeMenu = () => {
       $navBtn.classList.remove('close-btn');
   
-      const $navBar = $navBtn.querySelectorAll('.nav-ber');
+      const $navBar = $navBtn.querySelectorAll('.nav-bar');
       $navBar.forEach(ber => {
         ber.classList.remove('bar-active');
       });
@@ -21,7 +21,7 @@
     $navBtn.addEventListener('click', function () {
   
       this.classList.toggle('close-btn');
-      const $navBar = this.querySelectorAll('.nav-ber');
+      const $navBar = this.querySelectorAll('.nav-bar');
       $navBar.forEach(ber => {
         ber.classList.toggle('bar-active');
       });
