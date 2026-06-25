@@ -151,7 +151,7 @@
           <h3 class="about__intro-ttl">私について</h3>
           <p class="about__intro-txt c-sec-text">東京都在住。</p>
           <p class="about__intro-txt c-sec-text">精密部品や航空宇宙分野のはんだ付け・組み立てなど、品質が求められるモノづくりの現場を経験してきました。</p>
-          <p class="about__intro-txt c-sec-text">現在はWeb制作を学びながら実務にも取り組んでいます。</p>
+          <p class="about__intro-txt c-sec-text">2025年2月から現在までWeb制作を学びながら実務にも取り組んでいます。</p>
           <p class="about__intro-txt c-sec-text">丁寧で再現性のある実装を大切にしています。</p>
         </section>
       </div>
