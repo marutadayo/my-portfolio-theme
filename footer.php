@@ -81,7 +81,7 @@ if ($works_query->have_posts()) :
             <dl class="c-work-modal__requirements-detail">
               <div class="c-work-modal__detail-row">
                 <dt class="c-work-modal__detail-label">制作背景</dt>
-                <dd class="c-work-modal__detail-txt c-sec-text"><?php echo make_clickable(nl2br(esc_html(get_field('req_background')))); ?>
+                <dd class="c-work-modal__detail-txt c-sec-text"><?php echo make_clickable(nl2br(esc_html(get_field('req_background')))); ?></dd>
               </div>
               <div class="c-work-modal__detail-row">
                 <dt class="c-work-modal__detail-label">ターゲット</dt>
