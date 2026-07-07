@@ -2308,7 +2308,7 @@ body {
   gap: 32px;
 }
 @media (min-width: 1280px) {
-  .c-work-modal__content-coding-plan {
+  .c-work-modal__content-design-plan, .c-work-modal__content-coding-plan {
     padding-bottom: 64px;
   }
 }

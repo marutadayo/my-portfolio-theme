@@ -319,6 +319,7 @@
     gap: v.$space-6;
   }
 
+  &__content-design-plan,
   &__content-coding-plan {
     @include m.mq(lg) {
       padding-bottom: v.$space-8;
