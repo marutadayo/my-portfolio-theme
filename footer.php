@@ -94,37 +94,6 @@ if ($works_query->have_posts()) :
             </dl>
           </section>
 
-          <div class="c-work-modal__content-design-plan">
-            <section class="c-work-modal__design-plan">
-              <h3 class="c-work-modal__design-plan-ttl">デザイン設計</h3>
-              <dl class="c-work-modal__design-plan-detail">
-                <?php for ($i = 1; $i <= 5; $i++): ?>
-                  <?php if (get_field('design_title_' . $i)): ?>
-                    <div class="c-work-modal__detail-row">
-                      <dt class="c-work-modal__detail-label"><?php the_field('design_title_' . $i); ?></dt>
-                      <dd class="c-work-modal__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('design_text_' . $i))); ?></dd>
-                    </div>
-                  <?php endif; ?>
-                <?php endfor; ?>
-              </dl>
-            </section>
-
-            <?php if (get_field('design_img_1') || get_field('design_img_2')): ?>
-              <div class="c-work-modal__design-plan-inner-wrap">
-                <?php if (get_field('design_img_1')): ?>
-                  <div class="c-work-modal__design-plan-inner">
-                    <img src="<?php the_field('design_img_1'); ?>" width="900" height="2193" alt="デザイン画像" class="c-work-modal__design-inner-img" loading="lazy" decoding="async">
-                  </div>
-                <?php endif; ?>
-                <?php if (get_field('design_img_2')): ?>
-                  <div class="c-work-modal__design-plan-inner">
-                    <img src="<?php the_field('design_img_2'); ?>" width="900" height="2193" alt="デザイン画像" class="c-work-modal__design-inner-img" loading="lazy" decoding="async">
-                  </div>
-                <?php endif; ?>
-              </div>
-            <?php endif; ?>
-          </div>
-
           <div class="c-work-modal__content-coding-plan">
             <section class="c-work-modal__coding-plan">
               <h3 class="c-work-modal__coding-plan-ttl">コーディング設計</h3>
@@ -172,6 +141,38 @@ if ($works_query->have_posts()) :
               </div>
             <?php endif; ?>
           </div>
+
+          <div class="c-work-modal__content-design-plan">
+            <section class="c-work-modal__design-plan">
+              <h3 class="c-work-modal__design-plan-ttl">デザイン設計</h3>
+              <dl class="c-work-modal__design-plan-detail">
+                <?php for ($i = 1; $i <= 5; $i++): ?>
+                  <?php if (get_field('design_title_' . $i)): ?>
+                    <div class="c-work-modal__detail-row">
+                      <dt class="c-work-modal__detail-label"><?php the_field('design_title_' . $i); ?></dt>
+                      <dd class="c-work-modal__detail-txt c-sec-text"><?php echo nl2br(esc_html(get_field('design_text_' . $i))); ?></dd>
+                    </div>
+                  <?php endif; ?>
+                <?php endfor; ?>
+              </dl>
+            </section>
+
+            <?php if (get_field('design_img_1') || get_field('design_img_2')): ?>
+              <div class="c-work-modal__design-plan-inner-wrap">
+                <?php if (get_field('design_img_1')): ?>
+                  <div class="c-work-modal__design-plan-inner">
+                    <img src="<?php the_field('design_img_1'); ?>" width="900" height="2193" alt="デザイン画像" class="c-work-modal__design-inner-img" loading="lazy" decoding="async">
+                  </div>
+                <?php endif; ?>
+                <?php if (get_field('design_img_2')): ?>
+                  <div class="c-work-modal__design-plan-inner">
+                    <img src="<?php the_field('design_img_2'); ?>" width="900" height="2193" alt="デザイン画像" class="c-work-modal__design-inner-img" loading="lazy" decoding="async">
+                  </div>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+          </div>
+
 
           <?php if (get_field('full_img_1') || get_field('full_img_2')): ?>
             <div class="c-work-modal__content-img-wrap">
