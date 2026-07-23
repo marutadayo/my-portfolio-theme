@@ -12,8 +12,12 @@
 <?php
 // 1. WORKSのカスタム投稿を全件取得する設定
 $args = array(
-  'post_type' => 'works',
-  'posts_per_page' => -1,
+  'post_type'      => 'works',   // CPT UIで作った投稿タイプ名
+  'posts_per_page' => -1,        // 全件表示
+  'post_status'    => 'publish', // 公開済みの記事のみ
+  'meta_key'       => 'work_order', // 数字順
+  'orderby'        => 'meta_value_num',
+  'order'          => 'ASC'      // 古い順に並べる
 );
 $works_query = new WP_Query($args);
 
